@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://backend-tea-managerment-branch-service.onrender.com')
+      .then(response => {return response.json()})
+      .then(data => {
+        console.log("data::::",data); 
+        console.log(data);
+        setData(data);  // Lưu dữ liệu vào state
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []); // [] để fetch 1 lần
+  // console.log("data::::",data);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      fetch data from backend: {data}
     </div>
   );
 }
