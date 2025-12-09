@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       fetch data from backend: {data}
       <h1>thực hành phần mềm mã nguồn mở</h1>
+      <h1>thực hành phần mềm mã nguồn mở</h1>
     </div>
   );
 }
